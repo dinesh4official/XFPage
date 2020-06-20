@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<control:TabPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:XFPage"
+             mc:Ignorable="d"
+             xmlns:control="clr-namespace:XFPage.Control"
+             xmlns:viewModel="clr-namespace:XFPage.ViewModel"
+             xmlns:views="clr-namespace:XFPage.Views"
+             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+             android:TabbedPage.ToolbarPlacement="Bottom"
+             BarBackgroundColor="{DynamicResource TabBarColor}"
+             BarTextColor="{DynamicResource SecondaryTextColor}" UnselectedTabColor="White" SelectedTabColor="Aqua"
+             android:TabbedPage.IsSmoothScrollEnabled="True"
+             android:TabbedPage.IsSwipePagingEnabled="False"
+             xmlns:iOS="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             iOS:Page.UseSafeArea="true" NavigationPage.HasNavigationBar="False"
+             NavigationPage.HasBackButton="False"
+             x:Class="XFPage.MainPage">
+
+    <TabbedPage.BindingContext>
+        <viewModel:TabItemViewModel x:Name="ViewModel"/>
+    </TabbedPage.BindingContext>
+
+    <control:TransitionNavigationPage Title="LeftTransition">
+        <x:Arguments>
+            <views:ModelListView>
+                <views:ModelListView.IconImageSource>
+                    <FontImageSource FontFamily="{StaticResource FontAwesomeLight}" Glyph="&#xf80c;"/>
+                </views:ModelListView.IconImageSource>
+            </views:ModelListView>
+        </x:Arguments>
+    </control:TransitionNavigationPage>
+
+    <control:TransitionNavigationPage Title="TopTransition">
+        <x:Arguments>
+            <views:ImagePage>
+                <views:ImagePage.IconImageSource>
+                    <FontImageSource FontFamily="{StaticResource FontAwesomeLight}" Glyph="&#xf1e0;"/>
+                </views:ImagePage.IconImageSource>
+            </views:ImagePage>
+        </x:Arguments>
+    </control:TransitionNavigationPage>
+
+    <control:TransitionNavigationPage Title="Popup" control:TabbedPageTransforms.DisableSelection="True"
+                                       control:TabbedPageTransforms.DisableLoad="True" control:TabbedPageTransforms.HideTitle="True"
+                                       IconImageSource="{x:OnPlatform Android=ic_actionbutton, iOS=actionbutton.svg}">
+        <x:Arguments>
+            <ContentPage/>
+        </x:Arguments>
+    </control:TransitionNavigationPage>
+
+    <control:TransitionNavigationPage Title="NoTransition" control:TabbedPageTransforms.DisableSelection="True"
+                                       control:TabBadge.BadgeColor="#FF517D" control:TabBadge.BadgePosition="PositionTopRight"
+                                       control:TabBadge.BadgeText="o" control:TabBadge.BadgeTextColor="Transparent"
+                                       control:TabbedPageTransforms.DisableLoad="True" control:TabbedPageTransforms.HideTitle="False">
+        <control:TransitionNavigationPage.IconImageSource>
+            <FontImageSource FontFamily="{StaticResource FontAwesomeLight}" Glyph="&#xf0f3;"/>
+        </control:TransitionNavigationPage.IconImageSource>
+        <x:Arguments>
+            <ContentPage/>
+        </x:Arguments>
+    </control:TransitionNavigationPage>
+
+    <control:TransitionNavigationPage Title="PopupMenu" control:TabbedPageTransforms.DisableLoad="True" control:TabbedPageTransforms.HideTitle="False">
+        <control:TransitionNavigationPage.IconImageSource>
+            <FontImageSource FontFamily="{StaticResource FontAwesomeLight}" Glyph="&#xf0c9;"/>
+        </control:TransitionNavigationPage.IconImageSource>
+        <x:Arguments>
+            <ContentPage/>
+        </x:Arguments>
+    </control:TransitionNavigationPage>
+
+</control:TabPage>
