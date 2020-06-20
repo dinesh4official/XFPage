@@ -6,3 +6,7 @@ This repository demonstrates you to build the different kind of custom Xamarin F
 2. Transparent Page (Includes fix in Transparent Navigation Page - https://github.com/xamarin/Xamarin.Forms/issues/10861).
 3. Tabbed Page (Handles tab item click event and loads Pop-up page over the Tabbed Page)
 4. SVG support in Tabbed Page Tab Item.
+
+# Note
+
+Working on the sample for this repository. Coming Soon!
